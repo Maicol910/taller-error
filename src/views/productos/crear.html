@@ -1,0 +1,79 @@
+{% extends 'layouts/base.html' %} {% block titulo %} Crear producto {% endblock %} {% block contenido %}
+<h1 class="text-center">
+    CREAR PRODUCTO
+</h1>
+<form action="{{ url_for('crear_producto') }}" method="POST">
+
+    <div class="mb-3 fw-bold">
+        <label for="nombre">Nombre:</label>
+        <input type="text" required class="form-control" id="nombre" name="nombre">
+    </div>
+
+    <div class="mb-3 fw-bold">
+        <label for="descripcion">Descripcion:</label>
+        <textarea type="text" required class="form-control" id="descripcion" name="descripcion"></textarea>
+    </div>
+
+    <div class="mb-3 fw-bold">
+        <label for="precio_compra">Precio_Compra:</label>
+        <input type="number" required class="form-control" id="precio_compra" name="precio_compra">
+    </div>
+
+    <div class="mb-3 fw-bold">
+        <label for="precio_venta">Precio_Venta:</label>
+        <input type="number" required class="form-control" id="precio_venta" name="precio_venta">
+    </div>
+
+    <div class="mb-3 fw-bold">
+        <label for="ganancia">Ganancia (%)</label>
+        <input type="number" required class="form-control" id="ganancia" name="ganancia">
+    </div>
+
+    <div class="mb-3 fw-bold">
+        <label for="estado">Estado:</label>
+        <select class="form-select" required name="estado" id="estado">
+            <option required value="">Seleccione una opcion</option>
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
+        </select>
+    </div>
+    <br>
+    <center>
+        <button class="btn btn-outline-dark" type="submit">Guardar </button>
+        <a class="btn btn-outline-dark" role="button" href="{{url_for('productos') }}">volver</a>
+    </center>
+</form>
+
+<script>
+    let inputPrecioCompra = document.querySelector('#precio_compra')
+    let inputPrecioVenta = document.querySelector('#precio_venta')
+    let inputGanancia = document.querySelector('#ganancia')
+
+    inputPrecioCompra.addEventListener('change', cambioPrecioCompra)
+
+    function cambioPrecioCompra(e) {
+        console.log('Cambiando precio compra')
+    }
+
+    inputPrecioVenta.addEventListener('change', cambioPrecioVenta)
+
+    function cambioPrecioVenta(e) {
+        //cambiar precio de venta 
+        //cganancia = (precio_venta-precio_compra)/100 
+        let precio_venta = parseInt(inputPrecioVenta.value)
+        let precio_compra = parseInt(inputPrecioCompra.value)
+        let ganancia = ((precio_venta - precio_compra) / precio_compra) * 100
+        inputGanancia.value = ganancia
+    }
+
+    inputGanancia.addEventListener('change', cambioGanancia)
+
+    function cambioGanancia(e) {
+        let precio_compra = parseInt(inputPrecioCompra.value)
+        let ganancia = parseInt(inputGanancia.value)
+        let precio_venta = (precio_compra * (ganancia / 100)) + precio_compra
+        inputPrecioVenta.value = precio_venta
+    }
+</script>
+
+{% endblock %}

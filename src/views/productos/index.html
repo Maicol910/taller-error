@@ -1,0 +1,38 @@
+{% extends 'layouts/base.html' %} {% block titulo %} Productos {% endblock %} {% block contenido %}
+<h1 class="text-center">
+    LISTADO DE PRODUCTOS
+</h1>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a class="btn btn-outline-dark" role="button" href="{{url_for('index') }}">Inicio</a>
+    <a aria-disabled="true" class="d-grid gap-2 col-6 mx-auto btn btn-outline-dark" role="button" href="{{url_for('crear_producto') }}">Crear Productos</a>
+</div>
+<br>
+<table class="text-center table table-dark table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Precio_Venta</th>
+            <th>Precio_Compra</th>
+            <th>Ganancia</th>
+            <th>Estado</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in productos %}
+        <tr>
+            <td> {{producto[0]}} </td>
+            <td> {{producto[1]}} </td>
+            <td> {{producto[2]}} </td>
+            <td> {{producto[3]}} </td>
+            <td> {{producto[4]}} </td>
+            <td> {{producto[5]}}% </td>
+            <td> {{producto[6]}} </td>
+            <td> <a class="btn-sm d-grid mx-auto btn btn-outline-light" role="button" href="{{url_for('editar_produc',id=producto[0])}}">Editar</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
