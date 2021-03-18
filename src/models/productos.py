@@ -1,4 +1,4 @@
-from src.config.globals import globals
+import src.config.globals as globals
 
 class productosModel():
     def traerTodos(self):

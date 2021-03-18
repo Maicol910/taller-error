@@ -1,22 +1,42 @@
-<div class="row g-2">
-    <div class="mb-3 fw-bold">
-        <label for="nombre">Nombre de la base de datos:</label>
-        <input type="text" class="form-control" required id="nombre" name="nombre">
-    </div>
-
-    <div class=" mb-3 fw-bold">
-        <label for="usuario">Nombre de usuario:</label>
-        <input type="text" class="form-control " required id="usuario" name="usuario">
-    </div>
-
-    <div class="mb-3 fw-bold">
-        <label for="password">contraseña:</label>
-        <input type="password" class="form-control " required id="password" name="password">
-    </div>
-
-    <div class="mb-3 fw-bold">
-        <label for="servidor">Selvidor de la base de datos:</label>
-        <input type="text" class="form-control " required id="servidor" name="servidor">
+{% extends 'layouts/base.html' %} {% block titulo %} Instalación {% endblock %} {% block contenido %}
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="text-center">
+            PROCESO DE INSTALACION
+        </h1>
     </div>
 </div>
-<a href="{{url_for('index') }}">instalar</a>
+<br>
+<center>
+    <div class="mb-3 fw-bold">
+        <div class="col-sm-3">
+            <form action="{{ url_for('instalacion') }}" method="POST">
+                <div class="mb-3">
+                    <label for="base_datos">BASE DE DATOS</label>
+                    <input type="text" required class="form-control" id="base_datos" name="base_datos">
+                </div>
+                <div class="mb-3">
+                    <label for="usuario">USUARIO</label>
+                    <input type="text" required class="form-control" id="usuario" name="usuario">
+                </div>
+                <div class="mb-3">
+                    <label for="contrasena">CONTRASEÑA</label>
+                    <input type="text" class="form-control" id="contrasena" name="contrasena">
+                </div>
+                <div class="mb-3">
+                    <label for="host">HOST</label>
+                    <input type="text" required class="form-control" id="host" name="host">
+                </div>
+                <div class="mb-3">
+                    <label for="puerto">PUERTO</label>
+                    <input type="text" required class="form-control" id="puerto" name="puerto">
+                </div>
+                <button class="d-grid gap-2 col-6 mx-auto btn btn-outline-dark">
+                    Instalar
+                </button>
+            </form>
+        </div>
+    </div>
+</center>
+
+{% endblock %}

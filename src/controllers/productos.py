@@ -1,7 +1,6 @@
 from flask import render_template, request, redirect, url_for, flash
 from src import app
 from src.models.productos import productosModel
-from src.config.db import DB
 
 @app.route('/productos')
 def productos():
