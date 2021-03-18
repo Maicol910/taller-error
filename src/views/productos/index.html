@@ -31,6 +31,7 @@
             <td> {{producto[5]}}% </td>
             <td> {{producto[6]}} </td>
             <td> <a class="btn-sm d-grid mx-auto btn btn-outline-light" role="button" href="{{url_for('editar_produc',id=producto[0])}}">Editar</a></td>
+            <td> <a class="btn-sm d-grid mx-auto btn btn-outline-danger" role="button" href="/productos/eliminar/{{producto[0]}}">Eliminar</a></td>
         </tr>
         {% endfor %}
     </tbody>

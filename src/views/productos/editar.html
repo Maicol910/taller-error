@@ -3,43 +3,44 @@
     EDITAR PRODUCTO
 </h1>
 <form method="POST">
+
     <div class="mb-3 fw-bold">
         <label for="nombre">Nombre</label>
-        <input type="text" class="form-control" required id="nombre" name="nombre">
+        <input type="text" class="form-control" required id="nombre" name="nombre" value="{{productos[1]}}">
     </div>
 
     <div class=" mb-3 fw-bold ">
         <label for="descripcion ">Descripcion</label>
-        <textarea type="text" class="form-control " required id="descripcion" name="descripcion"></textarea>
+        <input type="text" class="form-control" required id="descripcion" name="descripcion" value="{{productos[2]}}">
     </div>
 
     <div class="mb-3 fw-bold ">
         <label for="precio_compra ">Precio_compra</label>
-        <input type="number" class="form-control " required id="precio_compra" name="precio_compra">
+        <input type="number" class="form-control" required id="precio_compra" name="precio_compra" value="{{productos[3]}}">
     </div>
 
     <div class="mb-3 fw-bold ">
         <label for="precio_venta ">Precio_venta</label>
-        <input type="number" class="form-control " required id="precio_venta" name="precio_venta">
+        <input type="number" class="form-control" required id="precio_venta" name="precio_venta" value="{{productos[4]}}">
+    </div>
+
+    <div class="mb-3 fw-bold">
+        <label for="ganancia">Ganancia %</label>
+        <input type="number" class="form-control" required id="ganancia" name="ganancia" value="{{productos[5]}}">
     </div>
 
     <div class="mb-3 fw-bold ">
-        <label for="ganancia ">Ganancia %</label>
-        <input type="number" class="form-control" required id="ganancia" name="ganancia">
-    </div>
-
-    <div class="mb-3 fw-bold ">
-        <label for="estado ">Estado:</label>
-        <select class="form-select " required name="estado" id="estado">
-                <option required value=" ">Seleccione una opcion</option>
-                <option value="Activo">Activo</option>
-                <option value="Inactivo">Inactivo</option>
+        <label for="estado" required>Estado:</label>
+        <select class="form-select" required name="estado" id="estado">
+                <option value=" ">Seleccione una opcion</option>
+                <option value="Activo ">Activo</option>
+                <option value="Inactivo ">Inactivo</option>
             </select>
     </div>
 
     <center>
-        <button class="btn btn-outline-dark" type="submit">Guardar </button>
-        <a class="btn btn-outline-dark" role="button" href="{{url_for( 'productos') }} ">volver</a>
+        <button class="btn btn-outline-dark " type="submit ">Guardar </button>
+        <a class="btn btn-outline-dark " role="button " href="{{url_for( 'productos') }} ">volver</a>
     </center>
 
 </form>

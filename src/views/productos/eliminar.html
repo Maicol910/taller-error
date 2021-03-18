@@ -1,0 +1,11 @@
+{% extends 'layouts/base.html' %} {% block titulo %} eliminar Producto {% endblock %} {% block contenido %}
+<h1 class="text-center">
+    ELIMINAR PRODUCTO
+</h1>
+<form method="POST">
+    <label for="id">Id a eliminar :</label>
+    <input type="text" id="id" name="id">
+    <button type="submit">Eliminar</button>
+    <a class="btn btn-outline-dark" role="button" href="{{url_for( 'productos') }} ">volver</a>
+</form>
+{% endblock %}
