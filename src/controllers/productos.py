@@ -4,7 +4,7 @@ from src.models.productos import productosModel
 
 @app.route('/productos')
 def productos():
-
+    
     ProductosModel = productosModel() 
 
     productos = ProductosModel.traerTodos()
@@ -64,3 +64,14 @@ def eliminar_produc(id):
     ProductosModel.eliminar(id)
         
     return redirect(url_for('productos'))
+
+@app.route('/productos/tablas')
+def tablas():
+    if request.method == 'GET':
+        return render_template('productos/tablas.html')
+    
+    execute
+
+
+
+

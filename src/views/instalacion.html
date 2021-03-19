@@ -2,8 +2,9 @@
 <div class="row">
     <div class="col-sm-12">
         <h1 class="text-center">
-            PROCESO DE INSTALACION
+            GUI PARA MARIADB
         </h1>
+        <p class="text-center">Ingresar datos de mariaDB para gestionar</p>
     </div>
 </div>
 <br>
@@ -12,27 +13,27 @@
         <div class="col-sm-3">
             <form action="{{ url_for('instalacion') }}" method="POST">
                 <div class="mb-3">
-                    <label for="base_datos">BASE DE DATOS</label>
-                    <input type="text" required class="form-control" id="base_datos" name="base_datos">
-                </div>
-                <div class="mb-3">
-                    <label for="usuario">USUARIO</label>
-                    <input type="text" required class="form-control" id="usuario" name="usuario">
-                </div>
-                <div class="mb-3">
-                    <label for="contrasena">CONTRASEÑA</label>
-                    <input type="text" class="form-control" id="contrasena" name="contrasena">
-                </div>
-                <div class="mb-3">
                     <label for="host">HOST</label>
                     <input type="text" required class="form-control" id="host" name="host">
                 </div>
+
                 <div class="mb-3">
                     <label for="puerto">PUERTO</label>
                     <input type="text" required class="form-control" id="puerto" name="puerto">
                 </div>
+
+                <div class="mb-3">
+                    <label for="usuario">USUARIO</label>
+                    <input type="text" required class="form-control" id="usuario" name="usuario">
+                </div>
+
+                <div class="mb-3">
+                    <label for="contrasena">CONTRASEÑA</label>
+                    <input type="text" class="form-control" id="contrasena" name="contrasena">
+                </div>
+
                 <button class="d-grid gap-2 col-6 mx-auto btn btn-outline-dark">
-                    Instalar
+                    Autorizar
                 </button>
             </form>
         </div>

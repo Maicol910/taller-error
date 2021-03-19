@@ -4,7 +4,18 @@ class productosModel():
     def traerTodos(self):
         cursor = globals.DB.cursor()
         
-        cursor.execute('select * from productos')
+        cursor.execute('show databases')
+        
+        productos = cursor.fetchall()
+
+        cursor.close()
+
+        return productos
+
+    def tablas(self):
+        cursor = globals.DB.cursor()
+        
+        cursor.execute('SHOW INDEXES FROM tables FROM productos')
         
         productos = cursor.fetchall()
 

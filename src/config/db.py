@@ -6,6 +6,7 @@ import src.config.globals as globals
 CONEXION_PATH = path.abspath('src/config/conexion.json')
 SQL_PATH = path.abspath('base_de_datos.sql')
 
+
 def instalarDB():
     file_sql = open(SQL_PATH, 'r')
     sql = file_sql.read()
@@ -19,7 +20,6 @@ def instalarDB():
                 cursor.execute(command)
         except:
             print ("Saltando comando")
-
     cursor.close()
 
 def createDB():
@@ -34,3 +34,4 @@ def createDB():
         globals.DB = False
         
 createDB()
+
